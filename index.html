@@ -1,143 +1,62 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#07111f">
-  <title>Dad's 60th Birthday Surprise</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--gold:#fbbf24;--ink:#07111f;--panel:rgba(15,23,42,.76)}
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0}
-    body{font-family:"Plus Jakarta Sans",sans-serif;background:#07111f;color:#f8fafc;overflow:hidden;touch-action:manipulation}
-    .serif{font-family:Cinzel,serif}.gold{background:linear-gradient(120deg,#fff1a6,#fbbf24 45%,#fb923c);-webkit-background-clip:text;color:transparent}
-    .glass{background:var(--panel);border:1px solid rgba(255,255,255,.13);box-shadow:0 28px 80px rgba(0,0,0,.45);backdrop-filter:blur(18px)}
-    .scene{position:absolute;inset:0;display:grid;place-items:center;padding:6.5rem 1.25rem 7rem;opacity:0;visibility:hidden;transform:translateY(24px) scale(.98);transition:.7s cubic-bezier(.16,1,.3,1)}
-    .scene.active{opacity:1;visibility:visible;transform:none}.scene.leaving{transform:translateY(-20px) scale(.98)}
-    .destination-black{background:#000!important;z-index:20}
-    .orb{position:absolute;border-radius:999px;filter:blur(75px);opacity:.22;animation:drift 9s ease-in-out infinite alternate}
-    @keyframes drift{to{transform:translate3d(25px,-24px,0) scale(1.12)}}
-    @keyframes breathe{50%{transform:scale(1.035);box-shadow:0 0 45px rgba(251,191,36,.28)}}
-    .primary{animation:breathe 2.4s ease-in-out infinite}.reveal{opacity:0;transform:translateY(14px);transition:.8s ease}.reveal.show{opacity:1;transform:none}
-    .photo{transition:opacity .3s ease,transform .55s ease}.photo.loading{opacity:0;transform:scale(1.025)}
-    .kenburns{animation:ken 7s ease-out both}@keyframes ken{from{transform:scale(1.06)}to{transform:scale(1)}}
-    .safe-top{padding-top:max(1rem,env(safe-area-inset-top))}.safe-bottom{padding-bottom:max(1rem,env(safe-area-inset-bottom))}
-    @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
-    @media (max-height:700px){.scene{padding-top:5rem;padding-bottom:5.5rem}.compact{max-height:70vh}}
-  </style>
-</head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#07111f" name="theme-color"/>
+<title>Dad's 60th Birthday Surprise</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--gold:#fbbf24;--panel:rgba(15,23,42,.76)}*{box-sizing:border-box}html,body{height:100%;margin:0}body{font-family:"Plus Jakarta Sans",sans-serif;background:#07111f;color:#f8fafc;overflow:hidden;touch-action:manipulation;-webkit-tap-highlight-color:transparent}.serif{font-family:Cinzel,serif}.gold{background:linear-gradient(120deg,#fff1a6,#fbbf24 45%,#fb923c);-webkit-background-clip:text;background-clip:text;color:transparent}.glass{background:var(--panel);border:1px solid rgba(255,255,255,.13);box-shadow:0 28px 80px rgba(0,0,0,.45);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}.scene{position:absolute;inset:0;display:grid;place-items:center;padding:6.5rem 1.25rem 7rem;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(24px) scale(.98);transition:.7s cubic-bezier(.16,1,.3,1)}.scene.active{opacity:1;visibility:visible;pointer-events:auto;transform:none}.scene.leaving{transform:translateY(-20px) scale(.98)}.destination-black{background:#000!important;z-index:20}.orb{position:absolute;border-radius:999px;filter:blur(75px);opacity:.22;animation:drift 9s ease-in-out infinite alternate}@keyframes drift{to{transform:translate3d(25px,-24px,0) scale(1.12)}}@keyframes breathe{50%{transform:scale(1.035);box-shadow:0 0 45px rgba(251,191,36,.28)}}.primary{animation:breathe 2.4s ease-in-out infinite}.reveal{opacity:0;transform:translateY(14px);transition:.8s ease}.reveal.show{opacity:1;transform:none}.photo{transition:opacity .3s ease,transform .55s ease}.photo.loading{opacity:0;transform:scale(1.025)}.kenburns{animation:ken 7s ease-out both}@keyframes ken{from{transform:scale(1.06)}to{transform:scale(1)}}.safe-top{padding-top:max(1rem,env(safe-area-inset-top))}.safe-bottom{padding-bottom:max(1rem,env(safe-area-inset-bottom))}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}@media(max-height:700px){.scene{padding-top:5rem;padding-bottom:5.5rem}.compact{max-height:72vh}}
+</style></head>
 <body>
-  <div aria-hidden="true" class="fixed inset-0 overflow-hidden">
-    <div class="orb -left-32 -top-32 h-96 w-96 bg-amber-400"></div><div class="orb -right-40 top-1/3 h-[30rem] w-[30rem] bg-indigo-500" style="animation-delay:-3s"></div><div class="orb bottom-[-12rem] left-1/3 h-96 w-96 bg-sky-500" style="animation-delay:-6s"></div>
-  </div>
-
-  <header class="safe-top fixed inset-x-0 top-0 z-50 flex items-center justify-between px-4 md:px-8">
-    <div class="glass flex items-center gap-3 rounded-full px-4 py-2"><span id="stepLabel" class="text-xs font-bold uppercase tracking-[.2em] text-slate-400">The surprise</span><div id="dots" class="flex gap-1.5"></div></div>
-    <div class="flex gap-2">
-      <button id="restart" class="glass rounded-full p-3 text-slate-300" aria-label="Start again"><i data-lucide="rotate-ccw" class="h-5 w-5"></i></button>
-    </div>
-  </header>
-
-  <main id="stage" aria-live="polite">
-    <section class="scene active" data-title="Happy 60th">
-      <div class="glass w-full max-w-3xl rounded-[2rem] p-7 text-center md:p-14">
-        <div class="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-2xl border border-amber-400/30 bg-amber-400/10"><i data-lucide="gift" class="h-9 w-9 text-amber-300"></i></div>
-        <p class="mb-3 text-sm font-bold uppercase tracking-[.28em] text-amber-300">A little early...</p>
-        <h1 class="serif gold text-5xl font-black leading-tight md:text-7xl">Dad, your 60th starts here</h1>
-        <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-300 md:text-xl">Your birthday is still a while away, but this surprise is too exciting to keep until next year.</p>
-        <button id="celebrate" class="mt-7 rounded-xl border border-amber-400/30 bg-amber-400/10 px-5 py-3 font-bold text-amber-200">A little more confetti</button>
-      </div>
-    </section>
-
-    <section class="scene" data-title="The plan"><div class="glass w-full max-w-3xl rounded-[2rem] p-8 text-center md:p-14"><h2 class="serif text-4xl font-bold md:text-6xl">For your 60th...</h2><p class="gold inline-block mt-5 px-1 pb-2 text-3xl font-extrabold leading-[1.25] md:text-5xl">you're going on a trip.</p></div></section>
-
-    <section class="scene" data-title="When"><div class="glass w-full max-w-3xl rounded-[2rem] p-8 text-center md:p-14"><i data-lucide="calendar-days" class="mx-auto mb-6 h-14 w-14 text-emerald-300"></i><p class="text-sm font-bold uppercase tracking-[.28em] text-emerald-300">Save the dates</p><h2 class="serif mt-4 text-3xl text-slate-300">When?</h2><div class="my-7 rounded-2xl border border-emerald-400/30 bg-slate-950/60 p-6"><p class="serif text-4xl font-black text-emerald-300 md:text-6xl">26–29 March 2027</p></div><p id="offWork" class="reveal flex items-center justify-center gap-2 text-lg font-semibold text-amber-200"><i data-lucide="circle-check" class="h-5 w-5 text-emerald-300"></i>And yes, you're off work.</p></div></section>
-
-    <section class="scene" data-title="The gang"><div class="glass w-full max-w-3xl rounded-[2rem] p-8 text-center md:p-14"><i data-lucide="users" class="mx-auto mb-6 h-14 w-14 text-violet-300"></i><h2 class="serif text-4xl md:text-5xl">Who with?</h2><p id="groupOne" class="reveal mt-8 text-2xl font-bold md:text-4xl">Mum, Paul, Steph, Lynsey &amp; Lewis</p><p id="groupTwo" class="reveal gold mt-6 px-1 pb-2 text-3xl font-black leading-[1.25] md:text-5xl">...and your grandson 👶</p></div></section>
-
-    <section class="scene" data-title="The mystery"><div class="text-center"><p id="where" class="serif text-6xl font-black md:text-8xl">Where<span id="ellipsis" class="text-amber-300"></span><span id="question" class="text-amber-300 opacity-0">?</span></p></div></section>
-
-    <section class="scene" data-title="First leg"><div class="glass compact w-full max-w-4xl overflow-y-auto rounded-[2rem] p-4 text-center md:p-7"><p class="mb-3 font-bold text-amber-200">Friday, 26 March 2027</p><h2 class="serif text-2xl font-bold md:text-4xl">First, everyone meets in Fort William</h2><div class="relative mx-auto mt-4 h-[42vh] min-h-[260px] max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-[#71BDEE]"><img src="Designer3.png" alt="Map showing everyone's first leg to Fort William" class="h-full w-full object-contain"></div><div class="mt-4 flex flex-wrap justify-center gap-4 text-sm font-semibold"><span class="text-amber-300">● You &amp; Mum</span><span class="text-sky-300">● Steph &amp; Lewis</span><span class="text-rose-300">● Paul, Lynsey &amp; Pops</span></div></div></section>
-
-    <section class="scene" data-title="Second leg"><div class="glass compact w-full max-w-4xl overflow-y-auto rounded-[2rem] p-4 text-center md:p-7"><p class="mb-3 font-bold text-amber-200">Saturday, 27 March 2027</p><h2 class="serif mt-2 text-3xl font-bold md:text-3xl">The next morning, we all make our way to the destination</h2><div class="relative mx-auto mt-4 h-[48vh] min-h-[280px] max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-[#71BDEE]"><img src="Designer.png" alt="Map showing the second leg of the journey" class="h-full w-full object-contain"><div class="absolute bottom-3 right-3 rounded-xl bg-slate-950/90 px-4 py-2 text-sm font-bold text-violet-200">All of us, together</div></div></div></section>
-
-    <section class="scene destination-black" data-title="Destination"><div id="goingTo" class="reveal absolute inset-0 grid place-items-center bg-black text-center"><p class="serif px-5 text-4xl text-slate-200 md:text-6xl">We're all going to...</p></div><div id="destination" class="reveal relative z-10 text-center"><h2 class="serif gold inline-block px-2 pb-3 text-6xl font-black leading-[1.15] tracking-wider md:text-9xl">RAASAY</h2></div></section>
-
-    <section class="scene" data-title="Where we'll stay"><div class="glass compact w-full max-w-4xl overflow-y-auto rounded-[2rem] p-4 text-center md:p-7"><p class="text-xs font-bold uppercase tracking-[.28em] text-amber-300">Where we're staying</p><h2 class="serif mt-2 text-2xl font-bold md:text-4xl">Na Bothain &amp; Raasay Distillery</h2><div class="relative mx-auto mt-4 h-[48vh] min-h-[280px] max-w-3xl overflow-hidden rounded-2xl bg-slate-950"><img id="galleryPhoto" class="photo h-full w-full object-cover" alt="Accommodation"><div class="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/90 to-transparent p-5"><p id="caption" class="max-w-[75%] text-left font-semibold"></p><span id="counter" class="rounded-full bg-black/60 px-3 py-1 text-xs text-amber-200"></span></div><button id="photoPrev" class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/65 p-3" aria-label="Previous photo"><i data-lucide="chevron-left"></i></button><button id="photoNext" class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/65 p-3" aria-label="Next photo"><i data-lucide="chevron-right"></i></button></div></div></section>
-  </main>
-
-  <footer class="safe-bottom fixed inset-x-0 bottom-0 z-50 flex items-center justify-between px-4 md:px-8"><button id="back" class="glass rounded-2xl px-5 py-4 font-bold disabled:opacity-20"><span class="flex gap-2"><i data-lucide="chevron-left"></i><span class="hidden sm:inline">Back</span></span></button><button id="next" class="primary rounded-2xl bg-gradient-to-r from-amber-400 to-orange-500 px-7 py-4 font-extrabold text-slate-950 shadow-xl"><span class="flex items-center gap-3"><span id="nextText">Begin the surprise</span><i data-lucide="arrow-right"></i></span></button></footer>
-
+<div aria-hidden="true" class="fixed inset-0 overflow-hidden"><div class="orb -left-32 -top-32 h-96 w-96 bg-amber-400"></div><div class="orb -right-40 top-1/3 h-[30rem] w-[30rem] bg-indigo-500" style="animation-delay:-3s"></div><div class="orb bottom-[-12rem] left-1/3 h-96 w-96 bg-sky-500" style="animation-delay:-6s"></div></div>
+<header class="safe-top fixed inset-x-0 top-0 z-50 flex items-center justify-between px-4 md:px-8"><div class="glass flex items-center gap-3 rounded-full px-4 py-2"><span class="text-xs font-bold uppercase tracking-[.2em] text-slate-400" id="stepLabel">The surprise</span><div class="flex gap-1.5" id="dots"></div></div><button aria-label="Start again" class="glass rounded-full p-3 text-slate-300" id="restart"><i class="h-5 w-5" data-lucide="rotate-ccw"></i></button></header>
+<main aria-live="polite" id="stage">
+<section class="scene active" data-title="Happy 60th"><div class="glass w-full max-w-3xl rounded-[2rem] p-7 text-center md:p-14"><div class="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-2xl border border-amber-400/30 bg-amber-400/10"><i class="h-9 w-9 text-amber-300" data-lucide="gift"></i></div><p class="mb-3 text-sm font-bold uppercase tracking-[.28em] text-amber-300">A little early...</p><h1 class="serif gold text-5xl font-black leading-tight md:text-7xl">Dad, your 60th starts here</h1><p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-300 md:text-xl">Your birthday is still a while away, but this surprise is too exciting to keep until next year.</p><button class="mt-7 rounded-xl border border-amber-400/30 bg-amber-400/10 px-5 py-3 font-bold text-amber-200" id="celebrate">A little more confetti</button></div></section>
+<section class="scene" data-title="The plan"><div class="glass w-full max-w-3xl rounded-[2rem] p-8 text-center md:p-14"><h2 class="serif text-4xl font-bold md:text-6xl">For your 60th...</h2><p class="gold mt-5 inline-block px-1 pb-2 text-3xl font-extrabold leading-[1.25] md:text-5xl">you're going on a trip.</p></div></section>
+<section class="scene" data-title="When"><div class="glass w-full max-w-3xl rounded-[2rem] p-8 text-center md:p-14"><i class="mx-auto mb-6 h-14 w-14 text-emerald-300" data-lucide="calendar-days"></i><p class="text-sm font-bold uppercase tracking-[.28em] text-emerald-300">Save the dates</p><h2 class="serif mt-4 text-3xl text-slate-300">When?</h2><div class="my-7 rounded-2xl border border-emerald-400/30 bg-slate-950/60 p-6"><p class="serif text-4xl font-black text-emerald-300 md:text-6xl">26–29 March 2027</p></div><p class="reveal flex items-center justify-center gap-2 text-lg font-semibold text-amber-200" id="offWork"><i class="h-5 w-5 text-emerald-300" data-lucide="circle-check"></i>And yes, you're off work.</p></div></section>
+<section class="scene" data-title="The gang"><div class="glass w-full max-w-3xl rounded-[2rem] p-8 text-center md:p-14"><i class="mx-auto mb-6 h-14 w-14 text-violet-300" data-lucide="users"></i><h2 class="serif text-4xl md:text-5xl">Who with?</h2><p class="reveal mt-8 text-2xl font-bold md:text-4xl" id="groupOne">Mum, Paul, Steph, Lynsey &amp; Lewis</p><p class="reveal gold mt-6 px-1 pb-2 text-3xl font-black leading-[1.25] md:text-5xl" id="groupTwo">...and your grandson 👶</p></div></section>
+<section class="scene" data-title="The mystery"><div class="text-center"><div class="relative inline-block serif text-6xl font-black md:text-8xl"><span id="where-word">Where</span><span class="absolute left-full top-0 ml-1 flex items-baseline whitespace-nowrap"><span class="text-amber-300" id="ellipsis"></span><span class="text-amber-300 opacity-0 transition-opacity duration-500" id="question">?</span></span></div></div></section>
+<section class="scene" data-title="First leg"><div class="glass compact w-full max-w-4xl overflow-y-auto rounded-[2rem] p-4 text-center md:p-7"><p class="mb-3 font-bold text-amber-200">Friday, 26 March 2027</p><h2 class="text-2xl font-bold normal-case md:text-4xl" style="font-family:'Plus Jakarta Sans',sans-serif;text-transform:none">First, everyone meets in Fort William</h2><div class="relative mx-auto mt-4 h-[42vh] min-h-[260px] max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-[#71BDEE]"><img alt="Map showing everyone's first leg to Fort William" class="h-full w-full object-contain" src="Designer3.png"/></div><div class="mt-4 flex flex-wrap justify-center gap-4 text-sm font-semibold"><span class="text-amber-300">● You &amp; Mum</span><span class="text-sky-300">● Steph &amp; Lewis</span><span class="text-rose-300">● Paul, Lynsey &amp; Pops</span></div></div></section>
+<section class="scene" data-title="Second leg"><div class="glass compact w-full max-w-4xl overflow-y-auto rounded-[2rem] p-4 text-center md:p-7"><p class="mb-3 font-bold text-amber-200">Saturday, 27 March 2027</p><h2 class="mt-2 text-3xl font-bold normal-case md:text-3xl" style="font-family:'Plus Jakarta Sans',sans-serif;text-transform:none">The next morning, we all make our way to the destination</h2><div class="relative mx-auto mt-4 h-[48vh] min-h-[280px] max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-[#71BDEE]"><img alt="Map showing the second leg of the journey" class="h-full w-full object-contain" src="Designer.png"/></div></div></section>
+<section class="scene destination-black" data-title="Destination"><div class="reveal absolute inset-0 grid place-items-center bg-black text-center" id="goingTo"><p class="serif px-5 text-4xl text-slate-200 md:text-6xl">We're all going to...</p></div><div class="reveal relative z-10 text-center" id="destination"><h2 class="serif gold inline-block px-2 pb-3 text-6xl font-black leading-[1.15] tracking-wider md:text-9xl">RAASAY</h2></div></section>
+<section class="scene" data-title="Where we'll stay"><div class="glass compact w-full max-w-7xl overflow-y-auto rounded-[2rem] p-4 md:p-7"><div class="mb-5 text-center"><p class="text-xs font-bold uppercase tracking-[.28em] text-amber-300">Where we're staying</p><h2 class="mt-2 text-2xl font-bold normal-case md:text-4xl" style="font-family:'Plus Jakarta Sans',sans-serif;text-transform:none">Na Bothain at Raasay Distillery</h2></div><div class="grid items-stretch gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)]"><div class="relative min-h-[300px] overflow-hidden rounded-2xl bg-slate-950"><div class="relative h-[42vh] min-h-[300px] lg:h-full"><img alt="Na Bothain accommodation photo 1" class="photo h-full w-full object-cover" id="galleryPhoto" src="raasay-distillery-luxury-accommodation-na-bothain-gallery-1.jpg"/><div class="pointer-events-none absolute inset-x-0 bottom-0 flex justify-end bg-gradient-to-t from-black/80 via-black/30 to-transparent p-5"><span class="rounded-full bg-black/70 px-3 py-1 text-xs font-semibold text-amber-200" id="counter">1 / 8</span></div><button aria-label="Previous photo" class="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/70 p-3 text-white" id="photoPrev" type="button"><i data-lucide="chevron-left"></i></button><button aria-label="Next photo" class="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/70 p-3 text-white" id="photoNext" type="button"><i data-lucide="chevron-right"></i></button></div></div><div class="rounded-2xl border border-amber-400/20 bg-slate-950/60 p-5 text-left md:p-6"><h3 class="mb-5 text-xl font-bold normal-case text-amber-300 md:text-2xl" style="font-family:'Plus Jakarta Sans',sans-serif;text-transform:none">What's included</h3><ul class="space-y-3 text-sm leading-relaxed text-slate-200 md:text-base"><li class="flex items-start gap-3"><i class="mt-0.5 h-5 w-5 shrink-0 text-amber-300" data-lucide="bed-double"></i><span>Two nights in Na Bothain, luxury accommodation at Isle of Raasay Distillery</span></li><li class="flex items-start gap-3"><i class="mt-0.5 h-5 w-5 shrink-0 text-amber-300" data-lucide="coffee"></i><span>Cooked Scottish breakfast or breakfast hamper delivered straight to your door</span></li><li class="flex items-start gap-3"><i class="mt-0.5 h-5 w-5 shrink-0 text-amber-300" data-lucide="glass-water"></i><span>Guided distillery tour and whisky tasting</span></li><li class="flex items-start gap-3"><i class="mt-0.5 h-5 w-5 shrink-0 text-amber-300" data-lucide="martini"></i><span>Welcome drink on arrival</span></li><li class="flex items-start gap-3"><i class="mt-0.5 h-5 w-5 shrink-0 text-amber-300" data-lucide="utensils"></i><span>Two-course evening meal on both evenings of your stay, with a welcome glass of sparkling wine on the first night</span></li><li class="flex items-start gap-3"><i class="mt-0.5 h-5 w-5 shrink-0 text-amber-300" data-lucide="sofa"></i><span>Access to a private guest lounge</span></li><li class="flex items-start gap-3"><i class="mt-0.5 h-5 w-5 shrink-0 text-amber-300" data-lucide="mountain"></i><span>Stunning panoramic views of the Isle of Skye and the Cuillin mountains</span></li></ul></div></div></div></section>
+<section class="scene" data-title="See your Bothan">
+<div class="glass compact w-full max-w-5xl overflow-y-auto rounded-[2rem] p-4 text-center md:p-7">
+<p class="text-xs font-bold uppercase tracking-[.28em] text-amber-300">One last thing...</p>
+<h2 class="mt-2 text-3xl font-bold normal-case md:text-5xl" style="font-family:'Plus Jakarta Sans',sans-serif;text-transform:none;">See your Bothan</h2>
+<a aria-label="Watch See my Bothan video on YouTube" class="mt-6 block overflow-hidden rounded-2xl border border-white/10 bg-slate-900 transition hover:border-amber-300/50" href="https://www.youtube.com/watch?v=NL-ycNvVn2g" rel="noopener noreferrer" target="_blank">
+<div class="grid aspect-video place-items-center bg-gradient-to-br from-slate-900 to-slate-800">
+<div class="text-center">
+<div aria-hidden="true" class="mx-auto mb-5 grid h-24 w-24 place-items-center rounded-full bg-red-600 shadow-2xl transition-transform hover:scale-105">
+<svg class="ml-1 h-12 w-12 fill-white" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+</div>
+<p class="text-2xl font-bold text-white">Watch the video</p>
+<p class="mt-2 text-slate-400">Opens in YouTube</p>
+</div>
+</div>
+</a>
+<p class="mt-4 text-sm text-slate-400">Tap the card above to see your Bothan.</p>
+</div>
+</section>
+</main>
+<footer class="safe-bottom fixed inset-x-0 bottom-0 z-50 flex items-center justify-between px-4 md:px-8"><button class="glass rounded-2xl px-5 py-4 font-bold disabled:opacity-20" id="back"><span class="flex gap-2"><i data-lucide="chevron-left"></i><span class="hidden sm:inline">Back</span></span></button><button class="primary rounded-2xl bg-gradient-to-r from-amber-400 to-orange-500 px-7 py-4 font-extrabold text-slate-950 shadow-xl" id="next"><span class="flex items-center gap-3"><span id="nextText">Begin the surprise</span><i data-lucide="arrow-right"></i></span></button></footer>
 <script>
-const scenes=[...document.querySelectorAll('.scene')];
-let step=0,timers=[],photo=0,auto=null,canContinue=false,maxUnlockedStep=0,touchStartX=0;
-const photos=[
-['raasay-distillery-luxury-accommodation-na-bothain-gallery-1.jpg','Na Bothain: luxury timber eco cabins'],
-['raasay-distillery-luxury-accommodation-view.jpg','Views across the Sound of Raasay to Skye'],
-['raasay-distillery-accommodation-na-bothain.jpg','A room with a remarkable view'],
-['raasay-distillery-accommodation-na-bothain-3.jpg','Warm, modern timber interiors'],
-['raasay-distillery-accommodation-na-bothain-4.jpg','A bath overlooking loch and mountains'],
-['raasay-distillery-accommodation-na-bothain-6.jpg','A dram of Isle of Raasay single malt'],
-['raasay-distillery-accommodation-na-bothain-7.jpg','A little luxury after exploring'],
-['raasay-distillery-accommodation-na-bothain-8.jpg','Space to relax together']];
-const $=id=>document.getElementById(id);
-const later=(fn,ms)=>timers.push(setTimeout(fn,ms));
-function clearTimers(){timers.forEach(clearTimeout);timers=[];clearInterval(auto);auto=null;}
-function unlock(){
-  canContinue=true;
-  maxUnlockedStep=Math.max(maxUnlockedStep,Math.min(step+1,scenes.length-1));
-  const b=$('next');
-  if(step<scenes.length-1){b.disabled=false;b.style.opacity='1';b.style.pointerEvents='auto';}
-}
-function lock(delay){
-  canContinue=false;
-  const b=$('next');
-  b.disabled=true;b.style.opacity='.28';b.style.pointerEvents='none';
-  later(unlock,delay);
-}
-function dots(){
-  $('dots').innerHTML=scenes.map((_,i)=>`<button aria-label="Go to part ${i+1}" data-step="${i}" ${i>maxUnlockedStep?'disabled':''} class="h-2 rounded-full transition-all ${i===step?'w-6 bg-amber-300':i<step?'w-2 bg-slate-400':'w-2 bg-slate-700'} ${i>maxUnlockedStep?'cursor-not-allowed opacity-40':''}"></button>`).join('');
-  document.querySelectorAll('[data-step]').forEach(b=>b.onclick=()=>{const n=+b.dataset.step;if(n<=maxUnlockedStep)show(n)});
-}
-function resetReveals(){document.querySelectorAll('.reveal').forEach(x=>x.classList.remove('show'));$('ellipsis').textContent='';$('question').style.opacity=0;}
-function show(n){
-  clearTimers();
-  if(n>maxUnlockedStep)return;
-  step=Math.max(0,Math.min(scenes.length-1,n));
-  scenes.forEach((s,i)=>{s.classList.toggle('active',i===step);s.classList.toggle('leaving',i<step)});
-  resetReveals();dots();
-  $('stepLabel').textContent=scenes[step].dataset.title;
-  $('back').disabled=step===0;
-  const labels=['Begin the surprise','When?','Who is coming?','But where?','Show the first leg','Show the second leg','Reveal the destination','See where we’re staying'];
-  $('nextText').textContent=labels[step]||'Continue';
-  $('next').style.visibility=step===scenes.length-1?'hidden':'visible';
-  document.body.style.backgroundColor=(step===4||step===7)?'#000000':'#07111f';
-
-  let delay=1500;
-  if(step===2){delay=2500;later(()=>$('offWork').classList.add('show'),1500)}
-  if(step===3){delay=2800;later(()=>$('groupOne').classList.add('show'),500);later(()=>$('groupTwo').classList.add('show'),1900)}
-  if(step===4){delay=3300;[1,2,3].forEach((v,i)=>later(()=>$('ellipsis').textContent='.'.repeat(v),700+i*600));later(()=>$('question').style.opacity=1,2600)}
-  if(step===7){delay=4300;later(()=>$('goingTo').classList.add('show'),400);later(()=>$('goingTo').classList.remove('show'),2300);later(()=>$('destination').classList.add('show'),3100)}
-  if(step===8){renderPhoto();auto=setInterval(()=>changePhoto(1),4500)}
-  if(step<scenes.length-1)lock(delay); else canContinue=false;
-}
-function renderPhoto(){const im=$('galleryPhoto');im.classList.add('loading');later(()=>{im.src=photos[photo][0];im.alt=photos[photo][1];$('caption').textContent=photos[photo][1];$('counter').textContent=`${photo+1} / ${photos.length}`;im.classList.remove('loading');im.classList.remove('kenburns');void im.offsetWidth;im.classList.add('kenburns')},180)}
-function changePhoto(d){photo=(photo+d+photos.length)%photos.length;renderPhoto();}
+const scenes=[...document.querySelectorAll('.scene')];let step=0,timers=[],photo=0,auto=null,canContinue=false,maxUnlockedStep=0;
+const photos=['raasay-distillery-luxury-accommodation-na-bothain-gallery-1.jpg','raasay-distillery-luxury-accommodation-view.jpg','raasay-distillery-accommodation-na-bothain.jpg','raasay-distillery-accommodation-na-bothain-3.jpg','raasay-distillery-accommodation-na-bothain-4.jpg','raasay-distillery-accommodation-na-bothain-7.jpg'];
+const $=id=>document.getElementById(id),later=(fn,ms)=>timers.push(setTimeout(fn,ms));
+function clearTimers(){timers.forEach(clearTimeout);timers=[];if(auto){clearInterval(auto);auto=null}}
+function unlock(){canContinue=true;maxUnlockedStep=Math.max(maxUnlockedStep,Math.min(step+1,scenes.length-1));const b=$('next');if(step<scenes.length-1){b.disabled=false;b.style.opacity='1';b.style.pointerEvents='auto'}dots()}
+function lock(delay){canContinue=false;const b=$('next');b.disabled=true;b.style.opacity='.28';b.style.pointerEvents='none';later(unlock,delay)}
+function dots(){$('dots').innerHTML=scenes.map((_,i)=>`<button type="button" aria-label="Go to part ${i+1}" data-step="${i}" ${i>maxUnlockedStep?'disabled':''} class="h-2 rounded-full transition-all ${i===step?'w-6 bg-amber-300':i<step?'w-2 bg-slate-400':'w-2 bg-slate-700'} ${i>maxUnlockedStep?'cursor-not-allowed opacity-40':''}"></button>`).join('');document.querySelectorAll('[data-step]').forEach(b=>b.onclick=()=>{const n=+b.dataset.step;if(n<=maxUnlockedStep)show(n)})}
+function resetReveals(){document.querySelectorAll('.reveal').forEach(x=>x.classList.remove('show'));$('ellipsis').textContent='';$('question').style.opacity='0'}
+function show(n){clearTimers();if(n>maxUnlockedStep)return;step=Math.max(0,Math.min(scenes.length-1,n));scenes.forEach((s,i)=>{s.classList.toggle('active',i===step);s.classList.toggle('leaving',i<step)});resetReveals();dots();$('stepLabel').textContent=scenes[step].dataset.title;$('back').disabled=step===0;const labels=['Begin the surprise','When?','Who is coming?','But where?','Show the first leg','Show the second leg','Reveal the destination','See where we’re staying','See my Bothan'];$('nextText').textContent=labels[step]||'Continue';$('next').style.visibility=step===scenes.length-1?'hidden':'visible';document.body.style.backgroundColor=(step===4||step===7)?'#000':'#07111f';let delay=1500;if(step===2){delay=2500;later(()=>$('offWork').classList.add('show'),1500)}if(step===3){delay=2800;later(()=>$('groupOne').classList.add('show'),500);later(()=>$('groupTwo').classList.add('show'),1900)}if(step===4){delay=3300;[1,2,3].forEach((v,i)=>later(()=>$('ellipsis').textContent='.'.repeat(v),700+i*600));later(()=>$('question').style.opacity='1',2600)}if(step===7){delay=4300;later(()=>$('goingTo').classList.add('show'),400);later(()=>$('goingTo').classList.remove('show'),2300);later(()=>$('destination').classList.add('show'),3100)}if(step===8){renderPhoto();auto=setInterval(()=>changePhoto(1),4500)}if(step<scenes.length-1)lock(delay);else canContinue=false}
+function renderPhoto(){const im=$('galleryPhoto'),counter=$('counter');if(!im||!photos.length)return;im.classList.add('loading');later(()=>{im.src=photos[photo];im.alt=`Na Bothain accommodation photo ${photo+1}`;if(counter)counter.textContent=`${photo+1} / ${photos.length}`;im.classList.remove('loading');im.classList.remove('kenburns');void im.offsetWidth;im.classList.add('kenburns')},180)}
+function changePhoto(direction){if(!photos.length)return;photo=(photo+direction+photos.length)%photos.length;renderPhoto()}
 function next(){if(canContinue&&step<scenes.length-1)show(step+1)}
-$('next').onclick=next;
-$('back').onclick=()=>show(step-1);
-$('restart').onclick=()=>{maxUnlockedStep=0;photo=0;show(0)};
-$('celebrate').onclick=()=>{if(window.confetti)confetti({particleCount:110,spread:85,origin:{y:.65},colors:['#fbbf24','#38bdf8','#a78bfa','#34d399','#fb7185']})};
-$('photoPrev').onclick=()=>changePhoto(-1);$('photoNext').onclick=()=>changePhoto(1);
-document.addEventListener('keydown',e=>{if(['ArrowRight',' ','Enter'].includes(e.key)){e.preventDefault();next()}if(e.key==='ArrowLeft'&&step>0)show(step-1)});
-document.addEventListener('touchstart',e=>touchStartX=e.changedTouches[0].clientX,{passive:true});
-document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-touchStartX;if(d<-70)next();else if(d>70&&step>0)show(step-1)},{passive:true});
+$('next').onclick=next;$('back').onclick=()=>show(step-1);$('restart').onclick=()=>{maxUnlockedStep=0;photo=0;show(0)};$('celebrate').onclick=()=>{if(window.confetti)confetti({particleCount:110,spread:85,origin:{y:.65},colors:['#fbbf24','#38bdf8','#a78bfa','#34d399','#fb7185']})};const prev=$('photoPrev'),nxt=$('photoNext');if(prev)prev.onclick=()=>changePhoto(-1);if(nxt)nxt.onclick=()=>changePhoto(1);
 lucide.createIcons();show(0);later(()=>{if(window.confetti)confetti({particleCount:110,spread:85,origin:{y:.65}})},450);
-</script>
-</body></html>
+</script></body></html>
