@@ -13,7 +13,11 @@
 </style></head>
 <body>
 <div aria-hidden="true" class="fixed inset-0 overflow-hidden"><div class="orb -left-32 -top-32 h-96 w-96 bg-amber-400"></div><div class="orb -right-40 top-1/3 h-[30rem] w-[30rem] bg-indigo-500" style="animation-delay:-3s"></div><div class="orb bottom-[-12rem] left-1/3 h-96 w-96 bg-sky-500" style="animation-delay:-6s"></div></div>
-<header class="safe-top fixed inset-x-0 top-0 z-50 flex items-center justify-between px-4 md:px-8"><div class="glass flex items-center gap-3 rounded-full px-4 py-2"><span class="text-xs font-bold uppercase tracking-[.2em] text-slate-400" id="stepLabel">The surprise</span><div class="flex gap-1.5" id="dots"></div></div><button aria-label="Start again" class="glass rounded-full p-3 text-slate-300" id="restart"><i class="h-5 w-5" data-lucide="rotate-ccw"></i></button></header>
+<header class="safe-top fixed inset-x-0 top-0 z-50 flex justify-end px-4 md:px-8">
+  <button aria-label="Start again" class="glass rounded-full p-3 text-slate-300" id="restart">
+    <i class="h-5 w-5" data-lucide="rotate-ccw"></i>
+  </button>
+</header>
 <main aria-live="polite" id="stage">
 <section class="scene active" data-title="Happy 60th"><div class="glass w-full max-w-3xl rounded-[2rem] p-7 text-center md:p-14"><div class="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-2xl border border-amber-400/30 bg-amber-400/10"><i class="h-9 w-9 text-amber-300" data-lucide="gift"></i></div><p class="mb-3 text-sm font-bold uppercase tracking-[.28em] text-amber-300">A little early...</p><h1 class="serif gold text-5xl font-black leading-tight md:text-7xl">Dad, your 60th starts here</h1><p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-300 md:text-xl">Your birthday is still a while away, but this surprise is too exciting to keep until next year.</p><button class="mt-7 rounded-xl border border-amber-400/30 bg-amber-400/10 px-5 py-3 font-bold text-amber-200" id="celebrate">A little more confetti</button></div></section>
 <section class="scene" data-title="The plan"><div class="glass w-full max-w-3xl rounded-[2rem] p-8 text-center md:p-14"><h2 class="serif text-4xl font-bold md:text-6xl">For your 60th...</h2><p class="gold mt-5 inline-block px-1 pb-2 text-3xl font-extrabold leading-[1.25] md:text-5xl">you're going on a trip.</p></div></section>
@@ -68,11 +72,10 @@ const scenes=[...document.querySelectorAll('.scene')];let step=0,timers=[],photo
 const photos=['raasay-distillery-luxury-accommodation-view.jpg','raasay-distillery-luxury-accommodation-na-bothain-gallery-1.jpg','raasay-distillery-accommodation-na-bothain.jpg','raasay-distillery-accommodation-na-bothain-3.jpg','raasay-distillery-accommodation-na-bothain-4.jpg','raasay-distillery-accommodation-na-bothain-7.jpg','accommodation-group-events-bar.jpg','raasay-distillery-restaurant-view.jpg'];
 const $=id=>document.getElementById(id),later=(fn,ms)=>timers.push(setTimeout(fn,ms));
 function clearTimers(){timers.forEach(clearTimeout);timers=[];if(auto){clearInterval(auto);auto=null}}
-function unlock(){canContinue=true;maxUnlockedStep=Math.max(maxUnlockedStep,Math.min(step+1,scenes.length-1));const b=$('next');if(step<scenes.length-1){b.disabled=false;b.style.opacity='1';b.style.pointerEvents='auto'}dots()}
+function unlock(){canContinue=true;maxUnlockedStep=Math.max(maxUnlockedStep,Math.min(step+1,scenes.length-1));const b=$('next');if(step<scenes.length-1){b.disabled=false;b.style.opacity='1';b.style.pointerEvents='auto'}}
 function lock(delay){canContinue=false;const b=$('next');b.disabled=true;b.style.opacity='.28';b.style.pointerEvents='none';later(unlock,delay)}
-function dots(){$('dots').innerHTML=scenes.map((_,i)=>`<button type="button" aria-label="Go to part ${i+1}" data-step="${i}" ${i>maxUnlockedStep?'disabled':''} class="h-2 rounded-full transition-all ${i===step?'w-6 bg-amber-300':i<step?'w-2 bg-slate-400':'w-2 bg-slate-700'} ${i>maxUnlockedStep?'cursor-not-allowed opacity-40':''}"></button>`).join('');document.querySelectorAll('[data-step]').forEach(b=>b.onclick=()=>{const n=+b.dataset.step;if(n<=maxUnlockedStep)show(n)})}
 function resetReveals(){document.querySelectorAll('.reveal').forEach(x=>x.classList.remove('show'));$('ellipsis').textContent='';$('question').style.opacity='0'}
-function show(n){clearTimers();if(n>maxUnlockedStep)return;step=Math.max(0,Math.min(scenes.length-1,n));scenes.forEach((s,i)=>{s.classList.toggle('active',i===step);s.classList.toggle('leaving',i<step)});resetReveals();dots();$('stepLabel').textContent=scenes[step].dataset.title;$('back').disabled=step===0;const labels=['Begin the surprise','When?','Who is coming?','Where to?','Tell me','Then what?','Reveal the destination','See where we’re staying','See your Bothan'];$('nextText').textContent=labels[step]||'Continue';$('next').style.visibility=step===scenes.length-1?'hidden':'visible';document.body.style.backgroundColor=(step===4||step===7)?'#000':'#07111f';let delay=1500;if(step===2){delay=2500;later(()=>$('offWork').classList.add('show'),1500)}if(step===3){
+function show(n){clearTimers();if(n>maxUnlockedStep)return;step=Math.max(0,Math.min(scenes.length-1,n));scenes.forEach((s,i)=>{s.classList.toggle('active',i===step);s.classList.toggle('leaving',i<step)});resetReveals();$('back').disabled=step===0;const labels=['Begin the surprise','When?','Who is coming?','Where to?','Tell me','Then what?','Reveal the destination','See where we’re staying','See your Bothan'];$('nextText').textContent=labels[step]||'Continue';$('next').style.visibility=step===scenes.length-1?'hidden':'visible';document.body.style.backgroundColor=(step===4||step===7)?'#000':'#07111f';let delay=1500;if(step===2){delay=2500;later(()=>$('offWork').classList.add('show'),1500)}if(step===3){
     delay=4500;
 
     later(()=>$('mum').classList.add('show'),500);
@@ -81,8 +84,23 @@ function show(n){clearTimers();if(n>maxUnlockedStep)return;step=Math.max(0,Math.
 
     later(()=>$('groupTwo').classList.add('show'),4000);
 }if(step===4){delay=3300;[1,2,3].forEach((v,i)=>later(()=>$('ellipsis').textContent='.'.repeat(v),700+i*600));later(()=>$('question').style.opacity='1',2600)}if(step===7){delay=4300;later(()=>$('goingTo').classList.add('show'),400);later(()=>$('goingTo').classList.remove('show'),2300);later(()=>$('destination').classList.add('show'),3100)}if(step===8){renderPhoto();auto=setInterval(()=>changePhoto(1),4500)}if(step<scenes.length-1)lock(delay);else canContinue=false}
-function renderPhoto(){const im=$('galleryPhoto'),counter=$('counter');if(!im||!photos.length)return;im.classList.add('loading');later(()=>{im.src=photos[photo];im.alt=`Na Bothain accommodation photo ${photo+1}`;if(counter)counter.textContent=`${photo+1} / ${photos.length}`;im.classList.remove('loading');im.classList.remove('kenburns');void im.offsetWidth;im.classList.add('kenburns')},180)}
-function changePhoto(direction){if(!photos.length)return;photo=(photo+direction+photos.length)%photos.length;renderPhoto()}
+function renderPhoto(){
+    const im = $('galleryPhoto'),
+          counter = $('counter');
+
+    if(!im || !photos.length) return;
+
+    im.src = photos[photo];
+    im.alt = `Na Bothain accommodation photo ${photo + 1}`;
+
+    if(counter){
+        counter.textContent = `${photo + 1} / ${photos.length}`;
+    }
+
+    im.classList.remove('kenburns');
+    void im.offsetWidth;
+    im.classList.add('kenburns');
+}function changePhoto(direction){if(!photos.length)return;photo=(photo+direction+photos.length)%photos.length;renderPhoto()}
 function next(){if(canContinue&&step<scenes.length-1)show(step+1)}
 $('next').onclick=next;$('back').onclick=()=>show(step-1);$('restart').onclick=()=>{maxUnlockedStep=0;photo=0;show(0)};$('celebrate').onclick=()=>{if(window.confetti)confetti({particleCount:110,spread:85,origin:{y:.65},colors:['#fbbf24','#38bdf8','#a78bfa','#34d399','#fb7185']})};const prev=$('photoPrev'),nxt=$('photoNext');if(prev)prev.onclick=()=>changePhoto(-1);if(nxt)nxt.onclick=()=>changePhoto(1);
 lucide.createIcons();show(0);later(()=>{if(window.confetti)confetti({particleCount:110,spread:85,origin:{y:.65}})},450);
